@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg-color: light-dark(#ffffff, #1a1a1a);
+            --text-color: light-dark(#333333, #e0e0e0);
+            --border-color: light-dark(#dee2e6, #444444);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 480px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        input:focus {
+            border-color: #3984fe;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .toggle-container{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .toggle{
+            width: 56px;
+            height: 32px;
+            background-color: #ccc;
+            border-radius: 16px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle.on {
+            background-color: #3984fe;
+        }
+
+        .toggle-slider {
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            transition: transform 0.3s;
+        }
+
+        .toggle.on .toggle-slider {
+            transform: translateX(24px);
+        }
+
+        .toggle-label {
+            font-size: 18px;
+            color: var(--text-color);
+        }
+
+        .continue-btn {
+            width: 100%;
+            background-color: #3984fe;
+            color: white;
+            padding: 12px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-bottom: 16px;
+        }
+
+        .continue-btn:hover {
+            background-color: #2968d8;
+        }
+
+        .reset-link {
+            text-align: center;
+        }
+
+        .reset-link a {
+            color: #3984fe;
+            font-size: 18px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .reset-link a:hover {
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="n@student.uma.pt">
+        </div>
+        
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="****************">
+        </div>
+
+        <div class="controls">
+            <div class="toggle-container">
+                <div class="toggle on" id="toggle">
+                    <div class="toggle-slider"></div>
+                </div>
+                <span class="toggle-label">Stay signed in</span>
+            </div>
+        </div>
+
+        <button class="continue-btn">Continue</button>
+
+        <div class="reset-link">
+            <a href="#">Forgot password?</a>
+        </div>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('toggle');
+        
+        toggle.addEventListener('click', function() {
+            this.classList.toggle('on');
+        });
+    </script>
+</body>
+</html>
